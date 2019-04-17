@@ -1,24 +1,13 @@
-(ns 38)
-
-(= (
-(fn [num1 num2 & nums]
-  (loop 
-      (if (> num))))))
+(ns thirtyeight)
  
-
-(fn [& nums]
+(defn maxer [& nums]
   (loop [num1 (first nums)
-         num2 (second nums)
-         nums (nthrest nums 2)]
-      (if (> num1 num2)
-        (recur num1 nums)
-        (recur num2 nums))))
+         numrest (rest nums)] 
+    (println numrest)
+    (if (<= (count numrest) 0) 
+      num1
+      (recur (if (> num1 (first numrest)) num1 (first numrest)) (rest numrest)))))
 
-(= ((fn [& nums]
-  (loop [num1 (first nums)
-         nums (rest nums)]
-    (if (not= nil nums)
-       (if (> num1 (first nums))
-        (recur num1 nums)
-        (recur (first nums) nums))
-       num1))) 1 8 3 4) 8)
+
+(= (maxer 1 8 3 4) 8)
+    
