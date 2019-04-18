@@ -1,0 +1,3 @@
+(ns thirty)
+
+(take-while)
