@@ -1,4 +1,10 @@
 (ns forty)
 
+(= ((fn ipose [k coll] (take (dec (* (count coll) 2)) (interleave coll (repeat (count coll) k)))) 0 [1 2 3]) [1 0 2 0 3])
+;; => true
+
 ;; interpose
-#(take (dec (count %2)) (interleave %2 (repeat %1 (dec (count %2)))))sh
+(fn ipose [k coll] (take (dec (* (count coll) 2)) (interleave coll (repeat (count coll) k))))
+
+;; or ozan
+(fn pose [k coll] (drop-last (interleave coll (repeat k))))
