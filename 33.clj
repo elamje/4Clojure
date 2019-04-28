@@ -1,5 +1,7 @@
 (ns thirtythree)
 
-
 ;; replicate each element
- (defn rep-each [x times] (mapcat #(flatten (repeat times %)) (partition-by identity x)))
+(= ((fn replicater [coll n] (mapcat #(repeat n %) coll)) [1 2 3] 2) '(1 1 2 2 3 3))
+;; => true
+
+(fn replicater [coll n] (mapcat #(repeat n %) coll))
