@@ -7,5 +7,9 @@
 
 (= (rot 1 '(:a :b :c)) '(:b :c :a))
 
+;; shorter
 
+(defn rot [n coll]
+  (let [n (mod n (count n))]
+    (concat (drop n coll) (take n coll))))
 
