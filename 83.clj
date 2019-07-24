@@ -9,4 +9,4 @@
                    true
                    false)))
 
-(= false (truthy false false))
+(= false (halftrue false false))
