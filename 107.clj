@@ -4,8 +4,9 @@
 
 (defn closure
   [n]
-  #((loop [n n
+  (fn [x]
+    (loop [n n
            res 1]
       (if (zero? n )
         res
-        (recur (dec n) (* res %))))))
+        (recur (dec n) (* res x))))))
